@@ -1,0 +1,7 @@
+HTTP/1.1 400 Bad Request
+Server: vibe.d/2.9.2
+Date: Wed, 13 Aug 2025 00:39:12 GMT
+Keep-Alive: timeout=10
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 72
+
