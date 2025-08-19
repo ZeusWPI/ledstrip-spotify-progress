@@ -25,9 +25,6 @@ fn main() -> reqwest::Result<()> {
 
     let track_id = args().skip(1).next().expect("no track id! :(");
 
-    println!("{}", SPOTIFY_CLIENT_ID.as_str());
-    println!("{}", SPOTIFY_CLIENT_SECRET.as_str());
-
     let client = reqwest::blocking::Client::new();
     let res = client
         .post("https://accounts.spotify.com/api/token")
@@ -48,7 +45,6 @@ fn main() -> reqwest::Result<()> {
         .header("Authorization", format!("Bearer {}", token.as_str()))
         .send()?
         .error_for_status()?;
-    eprintln!("{:?}", res);
     let duration = res.json::<Song>()?.duration_ms;
 
     print!("{}", duration / 1000.0);
